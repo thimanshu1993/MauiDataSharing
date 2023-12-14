@@ -23,8 +23,6 @@ namespace DataSharingSample.ViewModels
             }
         }
 
-        public ICommand EmployeeSelection { get; set; }
-
         ISharedService _SharedService;
 
         public HomePageViewModel(ISharedService sharedService)
@@ -32,7 +30,6 @@ namespace DataSharingSample.ViewModels
             try
             {
                 _SharedService = sharedService;
-                EmployeeSelection = new Command(async () => { await NavigatedToEmployeeDetails().ConfigureAwait(false); });
                 Employees = GetEmployee();
             }
             catch (Exception ex)
